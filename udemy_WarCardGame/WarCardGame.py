@@ -21,8 +21,12 @@ class Card:
     def __str__(self):
         return self.rank + " of " + self.suit
 
-two_hearts = Card('Hearts', 'Two')
-three_of_clubs = Card('Clubs','Three')
+class Deck:
+    def __init__(self):
+        self.all_cards = []
+        for suit in suits:
+            for rank in ranks:
+                #Create the Card Object
+                created_card = Card(suit,rank)
+                self.all_cards.append(created_card)
 
-print(three_of_clubs.value)
-print (two_hearts.value < three_of_clubs.value)
