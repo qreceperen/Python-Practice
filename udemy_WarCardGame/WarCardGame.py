@@ -29,14 +29,21 @@ class Deck:
                 #Create the Card Object
                 created_card = Card(suit,rank)
                 self.all_cards.append(created_card)
-    #shuffle the card list internally
-    #it shuffles the all_cars list
+
     def shuffle(self):
+         #shuffle the card list internally it shuffles the all_cars list
         random.shuffle(self.all_cards)
 
+    def deal_one (self):
+        #grabbing one of the card in the list. Remove one card from the
+        #all_card list and use it whenever need it.
+        return self.all_cards.pop()
 
 
 new_deck = Deck()
 new_deck.shuffle()
-bottom_card = new_deck.all_cards[-1]
-print(bottom_card)
+a = new_deck.deal_one()
+
+
+print(a)
+print(len(new_deck.all_cards))
