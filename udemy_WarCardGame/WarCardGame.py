@@ -29,4 +29,14 @@ class Deck:
                 #Create the Card Object
                 created_card = Card(suit,rank)
                 self.all_cards.append(created_card)
+    #shuffle the card list internally
+    #it shuffles the all_cars list
+    def shuffle(self):
+        random.shuffle(self.all_cards)
 
+
+
+new_deck = Deck()
+new_deck.shuffle()
+bottom_card = new_deck.all_cards[-1]
+print(bottom_card)
