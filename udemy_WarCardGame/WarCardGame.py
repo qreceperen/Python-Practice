@@ -39,11 +39,44 @@ class Deck:
         #all_card list and use it whenever need it.
         return self.all_cards.pop()
 
+class Player:
+    # This class hold a player's current list of cards.
+    def __init__(self, name):
+        #name is for player name
+        #all card refers the card that player holds.
+        self.name = name
+        self.all_cards = []
+
+    def remove_one (self):
+        #this function is going to remove a card from player decks.
+        # Card is going to be removed from the top of the deck
+        return self.all_cards.pop(0)
+
+    def add_cards (self,new_cards):
+        #add_card function is going to add card to players deck when player win cards.
+        #Cards will be added to the bottom of the player's deck.
+        if type(new_cards) == type([]):
+            #During the waw situation multiple cards might be gained. In this type of
+            #sotuation extend method will combine the card deck with player's deck.
+            self.all_cards.extend(new_cards)
+        else:
+            # if player gains only one card.
+            self.all_cards.append(new_cards)
+
+
+    def __str__(self):
+        return f'Player {self.name} has {len(self.all_cards)} cards.'
+
 
 new_deck = Deck()
 new_deck.shuffle()
-a = new_deck.deal_one()
+mycard = new_deck.deal_one()
+print(mycard)
 
 
-print(a)
-print(len(new_deck.all_cards))
+new_player = Player('Jose')
+new_player.add_cards([mycard,mycard,mycard])
+new_player.remove_one()
+print(new_player)
+
+
