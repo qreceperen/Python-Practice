@@ -92,6 +92,42 @@ for x in range(26):
     player_one.add_cards(new_deck.deal_one())
     player_two.add_cards(new_deck.deal_one())
 
+# START THE GAME
+game_on = True
+# game on is added like that because we will use while loop.
+
+# while game on
+round_num = 0  # we will count the rounds.
+while game_on:
+    round_num += 1
+    print(f'Round {round_num}')
+
+    # Check one of the player is out of cards or not. Because if any player out of cards
+    # while loop should stop and one of the player wins the game.
+    if len (player_one.all_cards) == 0:
+        print(f'Player One, out of cards! Player two wins')
+        game_on = False
+
+    if len (player_two.all_cards) == 0:
+        print(f'Player Two, out of cards! Player one wins')
+        game_on = False
 
 
-print (len(player_one.all_cards))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
