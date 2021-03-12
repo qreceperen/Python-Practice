@@ -127,6 +127,74 @@ while game_on:
 
     # WHILE AT WAR
 
+    at_war = True
+    # When both player puts their card from top of their deck war starts. It means
+    # we need to compare their card value to see which player will take the card on table
+
+    while at_war:
+        if player_one_cards[-1].value > player_two_cards[-1].value:
+        # player_one last card value(-1) is compared to player_two last card value(-1)
+            player_one.add_cards(player_one_cards)
+            player_one.add_cards(player_two_cards)
+            # player_one takes all the cards left on the table. player_one cards are
+            # updated by adding his current card and and player_two's card on the table.
+            at_war = False
+            # Current war is finished (war is comparison of cars) start new one.
+
+        elif player_one_cards[-1].value < player_two_cards[-1].value:
+            player_two.add_cards(player_one_cards)
+            player_two.add_cards(player_two_cards)
+            at_war = False
+        # player two win the war. (situation reversed)
+
+
+        else:
+            print("WAR!")
+            '''According to game rule if players card value is equal each to each other
+            , each player should put three cards on the table and start  at_war again
+            with both players fourth card. According to fourth card value, winner 
+            will take all the cards on the table. If fourth card value is equal again
+            players put another three cards and repeat process until one of them win'''
+
+            if len(player_one_cards) < 5:
+                print("Player One unable to declare war")
+                print("PLAYER TWO WINS!")
+                #  Normally game goes on until one of the players cards finish totaly.
+                # to shorten the game when a player has less than five card, the player loses the game
+                game_on = False
+                break
+
+            elif len(player_two_cards) < 5:
+                print("Player Two unable to declare war")
+                print("PLAYER ONE WINS!")
+                #  Normally game goes on until one of the players cards finish totaly.
+                # to shorten the game when a player has less than five card, the player loses the game
+                game_on = False
+                break
+
+            else:
+                # We have to add more cards to the table
+                for num in range(5):
+                    player_one_cards.append(player_one.remove_one())
+                    player_two_cards.append(player_two.remove_one())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
