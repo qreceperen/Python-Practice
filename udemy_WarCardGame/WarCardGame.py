@@ -72,15 +72,15 @@ class Player:
 
 
 # GAME SETUP
-# first players are created from player class. Game is played with two player.
+# players are created from player class. Game is played with two player.
 player_one = Player("One")
 player_two = Player('Two')
 
-# Second players cards are created and shuffled.
+# players cards are created and shuffled.
 new_deck = Deck()
 new_deck.shuffle()
 
-# There are 52 cards in the deck thats why range is 26 (half of 52) in order to divide
+# There are 52 cards in the deck that's why range is 26 (half of 52) in order to divide
 # into two evenly. Both players have 26 cards.
 # 26 Cards are added to both players according to Deck class deal_one function.
 for x in range(26):
@@ -107,10 +107,53 @@ while game_on:
     if len (player_one.all_cards) == 0:
         print(f'Player One, out of cards! Player two wins')
         game_on = False
+        break
 
     if len (player_two.all_cards) == 0:
         print(f'Player Two, out of cards! Player one wins')
         game_on = False
+        break
+
+    # START A NEW ROUND
+    player_one_cards = []
+    # This is the card player one leave on the table to start playing.
+    player_one_cards.append(player_one.remove_one())
+    # A card will be removed from top of player's deck and appended in player_one_cards
+    # list in order to compare player_one_cards and player two cards.
+
+    player_two_cards = []
+    player_two_cards.append(player_two.remove_one())
+    # Same steps above is repeated for the player two.
+
+    # WHILE AT WAR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
