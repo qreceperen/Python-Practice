@@ -16,3 +16,13 @@ class Card():
     def __str__(self):
         return self.rank + ' of ' + self.suits
 
+class Deck():
+    def __init__(self):
+        self.deck = [] # All 52 cards possibilities will go in deck list.
+        for suit in suits:
+            for rank in ranks:
+                # Nested card list is created for every possible card variation.
+                # Card variations are appended in deck list such as ((Heart, two))
+                # (Ace, three) , (Diamond, four))
+                self.deck.append(Class(suit, rank))
+
