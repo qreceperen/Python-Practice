@@ -43,6 +43,62 @@ class Deck():
         # from appended deck list, one card is taken (pop will take the first card
         # by default, since the deck is shuffled before deal function first card
         # always will be different.
+class Hand():
+    # Hand class represents the cards in player's hand.
+    def __init__(self):
+        self.cards = []
+        self.value = 0
+        # Tracks the value of the cards that player holding.
+        self.aces = 0
+        # Aces can be 1 or 11 (Their value is dynamic)
+
+    def add_card(self,card):
+        # This function will add a card from deck to player's hand.
+        self.cards.append(card)
+        # Card attribute comes from deck class not from Card class.
+        # from Deck.deal()--> single Card(suit,rank)
+        self.value += values[card.rank]
+        # self.value will increase according to card that delivered to player.
+        # card.rank (it becomes key in values dictionary) will be checked from
+        # values dictionary. From dictionary integer (rank) will be assigned to card
+        # in order to make mathematical comparisons between players card values.
+
 
 test_deck = Deck()
 test_deck.shuffle()
+
+# PLAYER
+test_player = Hand()
+# Deal 1 card from the deck CARD (suit, rank)
+pulled_card = test_deck.deal()
+print(pulled_card)
+test_player.add_card(pulled_card)
+print(test_player.value)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
