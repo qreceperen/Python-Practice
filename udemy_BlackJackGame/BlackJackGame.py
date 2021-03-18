@@ -45,4 +45,4 @@ class Deck():
         # always will be different.
 
 test_deck = Deck()
-print(test_deck)
+test_deck.shuffle()
