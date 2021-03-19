@@ -64,6 +64,13 @@ class Hand():
         # in order to make mathematical comparisons between players card values.
 
 
+        # track aces
+        if card.rank == 'Ace':
+            self.aces += 1
+        # this command identify is there aces in the player's hand or not
+        # by increasing self.aces value
+
+
 test_deck = Deck()
 test_deck.shuffle()
 
@@ -75,6 +82,8 @@ print(pulled_card)
 test_player.add_card(pulled_card)
 print(test_player.value)
 
+test_player.add_card(test_deck.deal())
+print(test_player.value)
 
 
 
