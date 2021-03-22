@@ -99,6 +99,7 @@ class Chips:
         self.total -= self.bet
         # Subtract from total according to player's bet.
 
+
 # Start writing functions to start the game.
 def take_bet(chips):
     while True:
@@ -111,7 +112,8 @@ def take_bet(chips):
                 print("Sorry, you do not have enough chips! You have: {}".format(chips.total))
             # Amount of chips cannot overdue the total.( Total represent amount of money player holds.
 
-def hit(deck,hand):
+
+def hit(deck, hand):
     single_card = deck.deal()
     # It takes single card from deck.(From deck class)
     hand.add_cards(single_card)
@@ -120,32 +122,29 @@ def hit(deck,hand):
     # Make arrangement if the card is Ace (Consider card value as 1 or 11)
 
 
+def hit_or_stand(deck, hand):
+    # This function ask player to continue taking card or stop taking card.
+    # Player will take card with hit function. According to value of the card
+    # player should decide whether continue taking card or stop taking card.
+    # Hit or stand function provide taking card or stop taking card.
 
+    global playing  # to control an upcoming while loop
+    while True:
+        x = input("Hit or stand? Enter h or s")
 
+        if x[0].lower() == 'h':
+            # if player write Capital we convert to lower letter to evaluate correctly.
+            # if player write more than one character (like "Stand" etc.. we take only first character by x[0].
+            hit(deck, hand)
+            # Player will continue taking card from deck. (From hit function)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        elif x[0].lower() == 's':
+            print("Player Stands Dealer's Turn")
+            playing = False
+            # Player stands ( stop taking cards and game stops. )
+        else:
+            print("Sorry, I did not understand that, Please enter h or s only!")
+            continue
+            # If player write something that not starting with s or h loop will
+            # continue until player writes something starting with s or h.
+        break
