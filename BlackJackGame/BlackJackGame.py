@@ -100,5 +100,46 @@ class Chips:
         # Subtract from total according to player's bet.
 
 # Start writing functions to start the game.
+def take_bet(chips):
+    while True:
+        try:
+            chips.bet = int(input("How many chips would you like to bet?"))
+        except:
+            print("Sorry please provide an integer")
+        else:
+            if chips.bet > chips.total:
+                print("Sorry, you do not have enough chips! You have: {}".format(chips.total))
+            # Amount of chips cannot overdue total.( Total represent amount of money player holds.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
