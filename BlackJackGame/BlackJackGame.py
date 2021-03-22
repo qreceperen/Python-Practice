@@ -111,7 +111,13 @@ def take_bet(chips):
                 print("Sorry, you do not have enough chips! You have: {}".format(chips.total))
             # Amount of chips cannot overdue the total.( Total represent amount of money player holds.
 
-
+def hit(deck,hand):
+    single_card = deck.deal()
+    # It takes single card from deck.(From deck class)
+    hand.add_cards(single_card)
+    # Evaluates the card value and add the card to player's hand.
+    hand.adjust_for_ace()
+    # Make arrangement if the card is Ace (Consider card value as 1 or 11)
 
 
 
