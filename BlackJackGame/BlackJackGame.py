@@ -109,7 +109,7 @@ def take_bet(chips):
         else:
             if chips.bet > chips.total:
                 print("Sorry, you do not have enough chips! You have: {}".format(chips.total))
-            # Amount of chips cannot overdue total.( Total represent amount of money player holds.
+            # Amount of chips cannot overdue the total.( Total represent amount of money player holds.
 
 
 
