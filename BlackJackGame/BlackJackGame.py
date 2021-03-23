@@ -148,3 +148,54 @@ def hit_or_stand(deck, hand):
             # If player write something that not starting with s or h loop will
             # continue until player writes something starting with s or h.
         break
+
+def show_some(player,dealer):
+    '''According to game playing dealer and player take two cards at the beginning.
+    Both player open second card and both see the card value. Second card is closed
+    (only dealers second card is closed) Player does not see the dealer's second
+    card at the beginning'''
+
+    # Show some function allow us to see dealer's second card. First card remain
+    # hidden. ([0] first position, [1] is second position.)
+    print ("\n Dealer's Hand: ")
+    print ("First card hidden!")
+    print (dealer.cards[1])
+    # It shows second card.(Dealer's first card is dealer.cards[0] is hidden
+
+    # Show all (2 cards) of player's hand cards.
+    print("\n Player's Hand: ")
+    for card in player.cards:
+        print(card)
+    # Basically player see both his/her cards but does not see dealer's second card.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
