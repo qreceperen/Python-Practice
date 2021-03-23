@@ -168,10 +168,21 @@ def show_some(player,dealer):
         print(card)
     # Basically player see both his/her cards but does not see dealer's second card.
 
+def show_all (player,dealer):
+    # Show all the dealer's cards
+    print("\n Dealer's hand: ")
+    for card in dealer.cards:
+        print (card)
+    # We see dealer's all cards in dealer's hand.
 
+    #Calculate and display value ( such as, J + K = 20)
+    print(f"Value of Dealer's hand is : {dealer.value}")
 
-
-
+    # Show and calculate all player cards.
+    print("\n Player's Hand: ")
+    for card in player.cards:
+        print(card)
+    rint(f"Value of Dealer's hand is : {player.value}")
 
 
 
