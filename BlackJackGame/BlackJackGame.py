@@ -184,7 +184,22 @@ def show_all (player,dealer):
         print(card)
     rint(f"Value of Dealer's hand is : {player.value}")
 
-
+# NOW WE ARE READY TO START GAME FUNCTIONS. FIRST ACCORDING TO WINNER
+# ARRANGE AMOUNT OF CHIPS.
+def player_bust(player,dealer,chips):
+    print("BUST PLAYER!")
+    chips.lose(bet)
+def player_wins(player,dealer,chips):
+    print("PLAYER WINS!!")
+    chips.win(bet)
+def dealer_bust(player,dealer,chips):
+    print("PLAYER WINS! DEALER BUSTED!")
+    chips.win(bet)
+def dealer_win(player,dealer,chips):
+    print("DEALER WINS!")
+    chips.lose(bet)
+def push (player,dealer):
+    print('Dealer and player tie! PUSH')
 
 
 
