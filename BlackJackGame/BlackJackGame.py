@@ -184,8 +184,7 @@ def show_all (player,dealer):
         print(card)
     rint(f"Value of Dealer's hand is : {player.value}")
 
-# NOW WE ARE READY TO START GAME FUNCTIONS. FIRST ACCORDING TO WINNER
-# ARRANGE AMOUNT OF CHIPS.
+# ARRANGE AMOUNT OF CHIPS ACCORDING TO WINNER.
 def player_bust(player,dealer,chips):
     print("BUST PLAYER!")
     chips.lose(bet)
@@ -202,7 +201,25 @@ def push (player,dealer):
     print('Dealer and player tie! PUSH')
 
 
+ # NOW WE ARE READY TO START GAME FUNCTIONS.
 
+while True:
+    # Print an opening statement.
+    print("WELCOME TO BLACKJACK")
+
+    # Create & shuffle the deck, deal two cards to each player.
+    deck = Deck()
+    deck.shuffle()
+
+    player_hand = Hand()
+    player_hand.add_card(deck.deal())
+    player_hand.add_card(deck.deal())
+    # it is written twice because according to game rules both player and
+    # dealer should start with two cards.
+
+    dealer_hand = Hand()
+    dealer_hand.add_card(deck.deal())
+    dealer_hand.add_card(deck.deal()) # twice same reason above.
 
 
 
