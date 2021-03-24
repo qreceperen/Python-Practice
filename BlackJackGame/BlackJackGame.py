@@ -256,16 +256,25 @@ while True:
     # each card player takes from deck we need to check whether or not player exceeds 21.
     # If player is not exceed 21 then we can compare card values to dealer's card values.
 
-    # If player hasn't busted play Dealer's hand until Dealer reaches 17 (17 is game rule)
+    # If player hasn't busted play Dealer's hand until Dealer win or lose.
     if player_hand.value <= 21:
-        while dealer_hand.value < 17:
+        while dealer_hand.value < player_hand.value:
             hit(deck, dealer_hand)
 
         # Show all cards.
         show_all(player_hand, dealer_hand)
 
         # Run different winning scenarios:
-        if
+        if dealer_hand.value > 21:
+            dealer_bust(player_hand, dealer_hand, player_chips)
+        elif dealer_hand.value > player_hand.value:
+            dealer_win(player_hand, dealer_hand, player_chips)
+        elif dealer_hand.value < player_hand.value:
+            player_wins(player_hand, dealer_hand, player_chips)
+        else:
+            push(player_hand, dealer_hand)
+
+
 
 
 
