@@ -75,7 +75,7 @@ class Hand():
 
     def adjust_for_ace(self):
         # If total value > 21 and still have an ace than change my ace to be 1 instead of 11
-        while self.value > 21 and self.ace > 0:
+        while self.value > 21 and self.aces:
             self.value -= 10
             self.aces -= 1
             # Ace value in the values dictionary is 11 by default. According to
@@ -105,18 +105,19 @@ def take_bet(chips):
     while True:
         try:
             chips.bet = int(input("How many chips would you like to bet?"))
-        except:
+        except ValueError:
             print("Sorry please provide an integer")
         else:
             if chips.bet > chips.total:
                 print("Sorry, you do not have enough chips! You have: {}".format(chips.total))
             # Amount of chips cannot overdue the total.( Total represent amount of money player holds.
-
+            else:
+                break
 
 def hit(deck, hand):
-    single_card = deck.deal()
+    hand.add_card(deck.deal())
     # It takes single card from deck.(From deck class)
-    hand.add_cards(single_card)
+
     # Evaluates the card value and add the card to player's hand.
     hand.adjust_for_ace()
     # Make arrangement if the card is Ace (Consider card value as 1 or 11)
@@ -184,29 +185,28 @@ def show_all(player, dealer):
     print("\n Player's Hand: ")
     for card in player.cards:
         print(card)
-    rint(f"Value of Dealer's hand is : {player.value}")
+    print(f"Value of Dealer's hand is : {player.value}")
 
 
 # ARRANGE AMOUNT OF CHIPS ACCORDING TO WINNER.
 def player_bust(player, dealer, chips):
     print("BUST PLAYER!")
-    chips.lose(bet)
+    chips.lose_bet()
 
 
 def player_wins(player, dealer, chips):
     print("PLAYER WINS!!")
-    chips.win(bet)
+    chips.win_bet()
 
 
 def dealer_bust(player, dealer, chips):
     print("PLAYER WINS! DEALER BUSTED!")
-    chips.win(bet)
+    chips.win_bet()
 
 
 def dealer_win(player, dealer, chips):
     print("DEALER WINS!")
-    chips.lose(bet)
-
+    chips.lose_bet()
 
 def push(player, dealer):
     print('Dealer and player tie! PUSH')
@@ -249,7 +249,7 @@ while True:
 
         # If player's hand exceeds 21, run player busts() and break out of Loop.
         if player_hand.value > 21:
-            player_busts(player_hand, dealer_hand, player_chips)
+            player_bust(player_hand, dealer_hand, player_chips)
             break
     # Purpose of this while function is; check player exceeds 21 or not. Because according
     # to game rules, if player exceeds 21 player lose the game automatically. Due to this after
@@ -280,7 +280,7 @@ while True:
 
     # Ask to play again
     new_game = input ("Would you like to playe another hand? y/n")
-    if new_hame[0].lower()=='y':
+    if new_game[0].lower() == 'y':
         playing = True
         continue
     else:
