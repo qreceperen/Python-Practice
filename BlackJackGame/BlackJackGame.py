@@ -149,7 +149,8 @@ def hit_or_stand(deck, hand):
             # continue until player writes something starting with s or h.
         break
 
-def show_some(player,dealer):
+
+def show_some(player, dealer):
     '''According to game playing dealer and player take two cards at the beginning.
     Both player open second card and both see the card value. Second card is closed
     (only dealers second card is closed) Player does not see the dealer's second
@@ -157,9 +158,9 @@ def show_some(player,dealer):
 
     # Show some function allow us to see dealer's second card. First card remain
     # hidden. ([0] first position, [1] is second position.)
-    print ("\n Dealer's Hand: ")
-    print ("First card hidden!")
-    print (dealer.cards[1])
+    print("\n Dealer's Hand: ")
+    print("First card hidden!")
+    print(dealer.cards[1])
     # It shows second card.(Dealer's first card is dealer.cards[0] is hidden
 
     # Show all (2 cards) of player's hand cards.
@@ -168,14 +169,15 @@ def show_some(player,dealer):
         print(card)
     # Basically player see both his/her cards but does not see dealer's second card.
 
-def show_all (player,dealer):
+
+def show_all(player, dealer):
     # Show all the dealer's cards
     print("\n Dealer's hand: ")
     for card in dealer.cards:
-        print (card)
+        print(card)
     # We see dealer's all cards in dealer's hand.
 
-    #Calculate and display value ( such as, J + K = 20)
+    # Calculate and display value ( such as, J + K = 20)
     print(f"Value of Dealer's hand is : {dealer.value}")
 
     # Show and calculate all player cards.
@@ -184,24 +186,33 @@ def show_all (player,dealer):
         print(card)
     rint(f"Value of Dealer's hand is : {player.value}")
 
+
 # ARRANGE AMOUNT OF CHIPS ACCORDING TO WINNER.
-def player_bust(player,dealer,chips):
+def player_bust(player, dealer, chips):
     print("BUST PLAYER!")
     chips.lose(bet)
-def player_wins(player,dealer,chips):
+
+
+def player_wins(player, dealer, chips):
     print("PLAYER WINS!!")
     chips.win(bet)
-def dealer_bust(player,dealer,chips):
+
+
+def dealer_bust(player, dealer, chips):
     print("PLAYER WINS! DEALER BUSTED!")
     chips.win(bet)
-def dealer_win(player,dealer,chips):
+
+
+def dealer_win(player, dealer, chips):
     print("DEALER WINS!")
     chips.lose(bet)
-def push (player,dealer):
+
+
+def push(player, dealer):
     print('Dealer and player tie! PUSH')
 
 
- # NOW WE ARE READY TO START GAME FUNCTIONS.
+# NOW WE ARE READY TO START GAME FUNCTIONS.
 
 while True:
     # Print an opening statement.
@@ -219,7 +230,7 @@ while True:
 
     dealer_hand = Hand()
     dealer_hand.add_card(deck.deal())
-    dealer_hand.add_card(deck.deal()) # twice same reason above.
+    dealer_hand.add_card(deck.deal())  # twice same reason above.
 
     # Set up the player's chips
     player_chips = Chips()
@@ -228,9 +239,40 @@ while True:
     take_bet(player_chips)
 
     # Show cards (but keep one dealer card hidden)
-    show_some(player_hand,dealer_hand)
+    show_some(player_hand, dealer_hand)
     # At the beginning both player takes two cards but according to game rules
     # one of dealer's card is hidden.
+
+    while playing:  # recall this variable from our hit_or_stand function
+        # Prompt for player to Hit or Stand
+        hit_or_stand(deck, player_hand)
+
+        # If player's hand exceeds 21, run player busts() and break out of Loop.
+        if player_hand.value > 21:
+            player_busts(player_hand, dealer_hand, player_chips)
+            break
+    # Purpose of this while function is; check player exceeds 21 or not. Because according
+    # to game rules, if player exceeds 21 player lose the game automatically. Due to this after
+    # each card player takes from deck we need to check whether or not player exceeds 21.
+    # If player is not exceed 21 then we can compare card values to dealer's card values.
+
+    # If player hasn't busted play Dealer's hand until Dealer reaches 17 (17 is game rule)
+    if player_hand.value <= 21:
+        while dealer_hand.value < 17:
+            hit(deck, dealer_hand)
+
+        # Show all cards.
+        show_all(player_hand, dealer_hand)
+
+        # Run different winning scenarios:
+        if
+
+
+
+
+
+
+
 
 
 
