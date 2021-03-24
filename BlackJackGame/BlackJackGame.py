@@ -221,6 +221,18 @@ while True:
     dealer_hand.add_card(deck.deal())
     dealer_hand.add_card(deck.deal()) # twice same reason above.
 
+    # Set up the player's chips
+    player_chips = Chips()
+
+    # Prompt the player for their bet.
+    take_bet(player_chips)
+
+    # Show cards (but keep one dealer card hidden)
+    show_some(player_hand,dealer_hand)
+    # At the beginning both player takes two cards but according to game rules
+    # one of dealer's card is hidden.
+
+
 
 
 
